@@ -1,0 +1,17 @@
+/node_modules/
+/public/bundle.*
+/public/bundle/
+
+#/npm-debug.log
+#/package-lock.json
+
+# npm output
+#/*.tgz
+
+# IntelliJ IDEA folder '/.idea/' intentionally not included
+#/.idea/
+
+# macOS:
+# You should ignore these system-wide
+#
+#.DS_Store
