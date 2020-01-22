@@ -2,7 +2,7 @@
 
 A single-page-application demonstrating the use of [svg.rx.js](https://github.com/akauppi/svg.rx.js/) (GitHub) JavaScript library. 
 
-The project also can be used as a Svelte 3 / Routify template. Much details goes into how such projects are built, served at development, and deployed. Here's my take of good practises.
+The project also can be used as a [Svelte 3](https://svelte.dev) / [Routify](https://routify.now.sh/docs/introduction) template. Much details goes into how such projects are built, served at development, and deployed. Here's my take of good practises.
 
 
 ## Requirements

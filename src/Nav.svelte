@@ -1,6 +1,5 @@
 <script>
-	//REMOVE
-	//export let segment;		// undefined | "circles" | "transform" | ... ; adjusts the visuals
+	import { isActive, url } from '@sveltech/routify'
 
 	let links = [	// [ <relative-url>|null, <title> ]
 			['.', 'home'],
@@ -67,14 +66,12 @@
 
 <nav>
 	<ul>
-{#each links as tab}
-	<!-- tbd. -->
-		<li><a class:selected='{segment === ""}' href='.'>home</a></li>
-		<li><a class:selected='{segment === "circles"}' href='circles'>circles</a></li>
-		<li><a class:selected='{segment === "transform"}' href='transform'>transform</a></li>
-
-		<li class:dimmed={true}>triangles</li>
-		<li class:dimmed={true}>petals</li>
+{#each links as [path, title]}
+	{#if path !== null}
+		<li><a href={$url(path)} class:selected='{$isActive(path)}'>{title}</a></li>
+	{:else}
+		<li class:dimmed={true}>{title}</li>
+	{/if}
 {/each}
 	</ul>
 </nav>

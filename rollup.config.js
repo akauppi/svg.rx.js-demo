@@ -8,9 +8,9 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import { fileRouter } from 'svelte-filerouter';
 import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
+import {routify} from '@sveltech/routify';
 
 // Note: production status is derived from whether we're watching, but those are two different things.
 //
@@ -19,7 +19,7 @@ const production = !watching;       // tbd. for now, maybe introduce a 'PRODUCTI
 
 export default [
     {   // Demo app
-        input: "demo/main.js",
+        input: "src/main.js",
         output: {
             sourcemap: true,
             format: "iife",
@@ -27,9 +27,9 @@ export default [
             dir: "public/bundle"
         },
         plugins: [
-            fileRouter({
-                appFile: 'demo/App.svelte',
-                pages: 'demo/pages',
+            routify({
+                appFile: 'src/App.svelte',
+                pages: 'src/pages',
                 // ignore: '['widget.svelte']'      // interpreted as regex; '_'-prefixed files always excluded
                 unknownPropWarnings: false
 
