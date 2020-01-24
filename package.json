@@ -21,7 +21,11 @@
     "build": "PROD=true rollup -c",
     "prod": "npm run build && sirv public --port 5000 --single --host 0.0.0.0",
     "clean": "(rm public/bundle/* public/bundle.css 2> /dev/null || true)",
-    "gh-pages": "npm run build && gh-pages -d public"
+    "gh-pages": "npm run build && gh-pages -d public",
+    "": "",
+    "~~debug:routify": "routify -du --pages ./src/path/to/pages",
+    "~~start:routify": "routify --pages ./src/path/to/pages",
+    "~~dev:start": "run-p debug:routify start:sirv autobuild"
   },
   "dependencies": {},
   "devDependencies": {

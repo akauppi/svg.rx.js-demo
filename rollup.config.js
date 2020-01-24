@@ -15,7 +15,7 @@ import {routify} from '@sveltech/routify';
 // Note: production status is derived from whether we're watching, but those are two different things.
 //
 const watching = process.env.ROLLUP_WATCH;      // automatically set by 'rollup'
-const production = process.env.PROD;     // needs to be explicitly set (our convention)
+const production = process.env.PROD;            // our convention
 
 export default [
     {   // Demo app
@@ -27,15 +27,6 @@ export default [
             dir: "public/bundle"
         },
         plugins: [
-            routify({
-                appFile: 'src/App.svelte',
-                pages: 'src/pages',
-                // ignore: '['widget.svelte']'      // interpreted as regex; '_'-prefixed files always excluded
-                unknownPropWarnings: false
-
-                // "UMD and IIFE output formats are not supported for code-splitting builds."
-                //dynamicImports: true        // "experimental code splitting"
-            }),
             svelte({
                 // enable run-time checks when not in production
                 dev: !production,
@@ -43,6 +34,18 @@ export default [
                 css: css => {
                     css.write('public/bundle.css');
                 }
+            }),
+
+            // Q: How can we provide Routify config if we'd like to run it in 'package.json', not here?  #routify
+            //
+            routify({
+                pages: './src/pages',
+                debug: true,        // "extra debugging"
+                unknownPropWarnings: true,
+                singleBuild: !watching,
+
+                // "UMD and IIFE output formats are not supported for code-splitting builds."
+                //dynamicImports: true        // "experimental code splitting"
             }),
 
             // If you have external dependencies installed from npm, you'll most likely need these plugins. In some

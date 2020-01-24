@@ -1,4 +1,4 @@
-## npm-link
+# npm-link
 
 To co-develop the `svg.rx.js` library with this demo:
 
@@ -16,3 +16,8 @@ To unlink (e.g. to test a published version):
 ```
 $ npm unlink svg.rx.js
 ```
+
+## References
+
+- [Understanding npm-link](https://medium.com/dailyjs/how-to-use-npm-link-7375b6219557) (blog, Oct 2018)
+

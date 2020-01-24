@@ -9,4 +9,9 @@
 
 ## BUGS 🐞🐞🐞
 
-- `npm run build` gets stuck with `routify` watching. It should just build.
+- `npm run build` doesn't work. Might be a Routify problem?
+   - track -> https://github.com/sveltech/routify/issues/73
+
+- Try Routify with config from the `package.json`
+   - Track -> https://github.com/sveltech/routify/issues/72
+
