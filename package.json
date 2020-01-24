@@ -18,18 +18,16 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "rollup",
-    "dev": "concurrently --restart-tries 10 --names rollup,sirv \"rollup --config rollup.config.js -w\" \"sirv public --port 3000 --single --host 0.0.0.0 --dev\"",
+    "build": "rollup -c",
+    "dev": "concurrently --restart-tries 10 --names rollup,sirv \"rollup -c -w\" \"sirv public --port 5000 --single --host 0.0.0.0 --dev\"",
+    "prod": "PROD=true rollup -c && sirv public --port 5000 --single --host 0.0.0.0",
     "~~~gh-pages": "gh-pages -d public",
     "~~~pregh-pages": "npm run build",
     "clean": "(rm public/bundle/* public/bundle.css 2> /dev/null || true)"
   },
-  "//dependencies": {
-    "//rxjs": "^6.5.4",
-    "//@sveltech/routify": "^1.0.1-37",
-    "//sirv-cli": "^0.4.4"
+  "dependencies": {
+    "svg.rx.js": "next"
   },
-  "dependencies": {},
   "//devDependencies": {
     "//gh-pages": "^2.1.1"
   },
@@ -52,17 +50,12 @@
   "//comments": {
     "": [
       "Based on:",
-      "- https://github.com/sveltejs/template/blob/master/package.json",
+      "- https://github.com/sveltech/routify-starter/blob/master/package.json",
       "",
-      "We prefer 'concurrently' over a setup that launches the server via 'rollup.config.js'. And in general, we prefer",
-      "'package.json' over Rollup config."
+      "We prefer 'concurrently' over 'run-p' (for no particular reason) and invoke 'routify' in the Rollup config file."
     ],
     "scripts": {
-      "": "Targets which are aimed to be implementation-detail (can change any time) have underscores (e.g. '_start')",
       "dev": "'sirv ... --host [0.0.0.0]' is so that the hosting is visible for e.g. touch devices, using the development machine's IP."
-    },
-    "dependencies": {
-      "sirv-cli": "This seems to be needed in the 'dependencies' side (but should be used only for development builds)"
     },
     "devDependencies": {
       "concurrently": "Sweet!🍭 -> https://www.npmjs.com/package/concurrently"

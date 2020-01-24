@@ -14,8 +14,8 @@ import {routify} from '@sveltech/routify';
 
 // Note: production status is derived from whether we're watching, but those are two different things.
 //
-const watching = process.env.ROLLUP_WATCH;
-const production = !watching;       // tbd. for now, maybe introduce a 'PRODUCTION' env.var. in package.json
+const watching = process.env.ROLLUP_WATCH;      // automatically set by 'rollup'
+const production = process.env.PROD;     // needs to be explicitly set (our convention)
 
 export default [
     {   // Demo app

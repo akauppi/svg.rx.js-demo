@@ -1,14 +1,14 @@
 <script>
+	import NavLinks from "../_components/NavLinks.svelte";
+
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';		// KEEP: SVG uses this!  (ignore WebStorm IDE syntax lowlighting)
 
 	import { assert } from 'assert';
 
-	// Note: Cannot import 'svg.rx.js' to a project also called that (npm errors). How can we best test that
-	//		a package gone via npm registry works?  (temporarily rename the package if trying this)
+	// Bring in 'svg.rx.js'. This points to either an npm exported setup, or a local copy in the same dev machine.
 	//
-	//import 'svg.rx.js';
-	import '../../src/main.js';		// in the same repo
+	import 'svg.rx.js';		// 'next' or the actual thing (tbd. could we differentiate - importing two kinds)
 
 	assert( SVGElement.prototype.rx_draggable );
 

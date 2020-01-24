@@ -1,6 +1,7 @@
 <script>
-	import NavLinks from "../_components/NavLinks.svelte";
+	//import NavLinks from "../_components/NavLinks.svelte";
 </script>
+
 <style>
 	h1, p {
 		text-align: center;
@@ -21,8 +22,6 @@
 <svelte:head>
 	<title>svg.rx.js demos</title>
 </svelte:head>
-
-<NavLinks />
 
 <h1>svg.rx.js demos</h1>
 

@@ -4,7 +4,6 @@
 - Based on -> https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform
 -->
 <script>
-
 	/** remove
 	import { onMount } from 'svelte';
 	import { assert } from 'assert';
