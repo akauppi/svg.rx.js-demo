@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.0.2",
-    "sirv-cli": "^1.0.0-next.2",
+    "sirv-cli": "^1.0.0-next.3",
     "rollup": "^1.27.14",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-livereload": "^1.0.0",
@@ -44,8 +44,8 @@
     "rollup-plugin-terser": "^5.1.2",
     "rollup-pluginutils": "^2.8.2",
     "start-server-and-test": "^1.7.13",
-    "svelte": "^3.16.7",
-    "@sveltech/routify": "next"
+    "svelte": "^3.17.3",
+    "@sveltech/routify": "^1.0.1-38"
   },
   "//comments": {
     "": [

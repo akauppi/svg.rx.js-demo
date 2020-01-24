@@ -1,29 +1,21 @@
 <script>
 	import { url, isActive } from "@sveltech/routify";
 	const _links = [
-		['.', 'home'],
-		['circles', 'circles'],
-		['transform', 'transform'],
+		['./index', 'home'],
+		['./circles', 'circles'],
+		['./transform', 'transform'],
 		[null, 'triangles'],
 		[null, 'petals']
 	];
 </script>
 
 <style>
-	aside {
-		text-align: center;
-	}
 	.nav {
 		margin: 16px;
 		padding: 16px;
 		border-radius: 4px;
 		background: white;
 		box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.075);
-		display: inline-block;
-	}
-	.link {
-		padding: 0 16px;
-		width: 64px;
 		display: inline-block;
 	}
 	.backlink {
@@ -33,6 +25,7 @@
 		font-weight: bold;
 	}
 	.active {
+		position: relative;
 		font-weight: bold;
 	}
 
@@ -46,18 +39,13 @@
 	}
 </style>
 
-<aside>
-	<div class="nav">
-		<a class="backlink" href={$url('/')}>&#8656; BACK TO APP</a>
+<div class="nav">
+	<a class="backlink" href={$url('/')}>&#8656; BACK TO APP</a>
 {#each _links as [path, title]}
 	{#if path !== null}
-			<a href={$url(path)} class:active={$isActive(path)} class="link" >
-				{title}
-			</a>
+		<a href={$url(path)} class:active={$isActive(path)} >{title}</a>
 	{:else}
-			<li class:dimmed={true}>{title}</li>
+		<li class:dimmed={true}>{title}</li>
 	{/if}
 {/each}
-	</div>
-</aside>
-
+</div>
