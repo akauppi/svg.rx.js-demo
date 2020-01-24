@@ -1,12 +1,5 @@
 /node_modules/
-/public/bundle.*
-/public/bundle/
-
-#/npm-debug.log
-#/package-lock.json
-
-# npm output
-#/*.tgz
+/public/build/
 
 # IntelliJ IDEA folder '/.idea/' intentionally not included
 #/.idea/
