@@ -21,11 +21,7 @@
     "prod:build": "PROD=true routify -b && rollup -c",
     "prod:start": "npm run build && sirv public --port 5000 --single --host 0.0.0.0",
     "clean": "(rm public/build/* 2> /dev/null || true)",
-    "gh-pages": "npm run build && gh-pages -d public",
-    "": "",
-    "~~debug:routify": "routify -du --pages ./src/path/to/pages",
-    "~~start:routify": "routify --pages ./src/path/to/pages",
-    "~~dev:start": "run-p debug:routify start:sirv autobuild"
+    "gh-pages": "npm run prod:build && gh-pages -d public"
   },
   "dependencies": {
     "svg.rx.js": "^0.0.7-alpha.1"
