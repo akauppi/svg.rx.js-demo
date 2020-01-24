@@ -1,14 +1,13 @@
 {
   "name": "svg.rx.js-demo",
-  "version": "0.0.1-alpha",
   "description": "Demoing 'svg.rx.js' library features",
+  "private": "true",
   "keywords": [
     "svg",
     "vector",
     "dragging",
     "touch"
   ],
-  "main": "src/main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/akauppi/svg.rx.js-demo"
@@ -18,19 +17,13 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
     "dev": "concurrently --restart-tries 10 --names rollup,sirv \"rollup -c -w\" \"sirv public --port 5000 --single --host 0.0.0.0 --dev\"",
-    "prod": "PROD=true rollup -c && sirv public --port 5000 --single --host 0.0.0.0",
-    "~~~gh-pages": "gh-pages -d public",
-    "~~~pregh-pages": "npm run build",
-    "clean": "(rm public/bundle/* public/bundle.css 2> /dev/null || true)"
+    "build": "PROD=true rollup -c",
+    "prod": "npm run build && sirv public --port 5000 --single --host 0.0.0.0",
+    "clean": "(rm public/bundle/* public/bundle.css 2> /dev/null || true)",
+    "gh-pages": "npm run build && gh-pages -d public"
   },
-  "dependencies": {
-    "svg.rx.js": "next"
-  },
-  "//devDependencies": {
-    "//gh-pages": "^2.1.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "concurrently": "^5.0.2",
     "sirv-cli": "^1.0.0-next.3",
@@ -45,7 +38,8 @@
     "rollup-pluginutils": "^2.8.2",
     "start-server-and-test": "^1.7.13",
     "svelte": "^3.17.3",
-    "@sveltech/routify": "^1.0.1-38"
+    "@sveltech/routify": "^1.0.1-38",
+    "gh-pages": "^2.1.1"
   },
   "//comments": {
     "": [
@@ -54,6 +48,7 @@
       "",
       "We prefer 'concurrently' over 'run-p' (for no particular reason) and invoke 'routify' in the Rollup config file."
     ],
+    "private": "marks that this package is not for publishing",
     "scripts": {
       "dev": "'sirv ... --host [0.0.0.0]' is so that the hosting is visible for e.g. touch devices, using the development machine's IP."
     },
